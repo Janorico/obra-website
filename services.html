@@ -1,0 +1,98 @@
+---
+title: Leistungen
+layout: compress
+permalink: /services/
+---
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+
+<body>
+{% include navbar.html %}
+<section class="hero is-fullheight has-text-centered has-background-grain" id="wood">
+    <div style="background-image: url('/assets/images/IMGP8676_be.JPG');background-size: cover;background-position: center; min-width: 100vmax; aspect-ratio: 1 / 0.2"></div>
+    <div class="services-section-header"><h3 class="section-header-text subtitle has-text-white is-size-3 is-uppercase has-text-weight-bold">Holz&bull;Arbeiten</h3></div>
+    <div class="hero-body">
+        <div class="container">
+            <div class="has-text-center subtitle is-uppercase has-text-weight-medium has-text-grey">Ich fertige Holzarbeiten jenseits der Norm.</div>
+            <div class="columns">
+                <div class="column is-one-third-desktop is-one-third-tablet is-one-third-fullhd">
+                    <img alt="Holz&bull;Arbeiten Bild" src="/assets/images/IMG_9536_quad.JPG">
+                </div>
+                <div class="column has-text-left">
+                    Meine Liebe zur Seele des Holzes und meine Passion für altbewährte Handwerkstechniken fließen in jedes Werkstück mit ein.
+                    <br>
+                    <br>
+                    Dabei arbeite ich den Charakter des jeweiligen Holzes heraus. Zeugnisse aus dem Leben des Baumes werden zu lebendigen Details.
+                    <br>
+                    Jede Holzart hat ihre eigene Ausstrahlung, jeder Baum seine individuelle Wuchsgeschichte. Gemeinsam wählen wir nach verschiedenen Gesichtspunkten eine Holzart,
+                    die Ihnen mit ihrer ganz eigenen Atmosphäre einen Mehrwert in ihre Wohnräume bringt. Dabei können neben dem Anspruch an das Holz und ihrem persönlichen
+                    Geschmack auch Aspekte aus bekannten gesundheitlichen und seelischen Wirkungen der Hölzer, sowie ihr keltisches Baumzeichen eine Rolle spielen. Gerne k&ouml;nnen
+                    Sie mich <a href="/#contact">hier</a> kontaktieren.
+                    <!--<br>
+                    <br>
+                    Mein Angebot umfasst:-->
+                </div>
+            </div>
+            <div class="container">
+                {% for offer in site.data.wood_offers %}
+                <div class="columns">
+                    <div class="column image obra-card obra-service is-one-quarter-desktop is-one-quarter-tablet is-one-quarter-fullhd"
+                         style="background-image: url({{offer.image}}); background-position: {{offer.image-position}}">
+                        <div class="obra-card-text">
+                            <h1 class="title has-text-white is-size-4">{{ offer.name }}</h1>
+                        </div>
+                    </div>
+                    <div class="column has-text-left">{{ offer.description }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-fullheight has-text-centered has-background-grain" id="tree">
+    <div style="background-image: url('/assets/images/IMG_4638.JPG');background-size: cover;background-position: center; min-width: 100vmax; aspect-ratio: 1 / 0.2"></div>
+    <div class="services-section-header"><h3 class="section-header-text subtitle has-text-white is-size-3 is-uppercase has-text-weight-bold">Baum&bull;Kontrolle</h3></div>
+    <div class="hero-body">
+        <div class="container">
+            <div class="has-text-center subtitle is-uppercase has-text-weight-medium has-text-grey">B&auml;ume erhalten, Sicherheit gew&auml;hrleisten!</div>
+            <div class="columns">
+                <div class="column is-one-third-desktop is-one-third-tablet is-one-third-fullhd">
+                    <img alt="Baum&bull;Kontrolle Bild" src="/assets/images/IMG_2173.JPG">
+                </div>
+                <div class="column has-text-left">
+                    Im bebauten Bereich ist der Eigentümer verpflichtet, die Verkehrssicherheit der Bäume auf seinem Grund und entlang von Wegen jährlich zu überwachen. Manchmal
+                    steht dann das Wohl eines Baumes gegen eine potenzielle Gefährdung. Mit Fachkenntnis und Fingerspitzengefühl eingesetzt, können baumpflegerische Maßnahmen die
+                    volle Sicherheit gewährleisten und die Schäden für den Baum auf ein Mindestmaß beschränken.
+                    <br>
+                    Als diplomierter Forstingenieur und zertifizierter Baumkontrolleur nach VTA mit langjähriger Berufserfahrung, erstelle ich rechtssichere Kontrollen Ihres
+                    Baumbestandes. Gerne stehe ich Ihnen dann beratend zur Seite, wenn es an die Maßnahmenplanung geht. Darüber hinaus übernehme ich auf Wunsch die Kartierung Ihres
+                    Baumbestandes. Das ermöglicht Ihnen, die gesundheitliche Entwicklung einzelner Bäume im Blick zu haben und potenziell notwendige Maßnahmen langfristig
+                    anvisieren zu können.
+                    <br>
+                    <br>
+                    Sollte eine Fällung unumgänglich sein, kann ich Ihrem geliebten Baum ein neues Dasein in Ihrem Leben geben. Lassen Sie sich unverbindlich Beraten.
+                    <br>
+                    <div class="has-text-centered"><a class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined" href="/#contact">Kontakt</a></div>
+                </div>
+            </div>
+            <div class="container">
+                {% for offer in site.data.tree_offers %}
+                <div class="columns">
+                    <div class="column image obra-card obra-service is-one-quarter-desktop is-one-quarter-tablet is-one-quarter-fullhd"
+                         style="background-image: url({{offer.image}}); background-position: {{offer.image-position}}">
+                        <div class="obra-card-text">
+                            <h1 class="title has-text-white is-size-4">{{ offer.name }}</h1>
+                        </div>
+                    </div>
+                    <div class="column has-text-left">{{ offer.description }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--Footer begins here-->
+{% include footer.html %}
+</body>
+</html>

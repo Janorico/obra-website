@@ -74,3 +74,15 @@ build-iPhoneSimulator/
 
 ## IntelliJ IDEA
 .idea/
+
+## Testing
+.dev/test/
+
+## VScode
+.vscode/**
+!.vscode/tasks.json
+*.code-workspace
+
+## PHP
+# This is ignored for security reasons
+*.php

@@ -1,0 +1,30 @@
+meta {
+  name: Put Entry
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://obra-allgaeu.de/gallery-api-v2/admin.php?password=82c8aa52b6c46c80fe85bc20047d7b5131f62423&name=test&desc=Hello!!&idx=1
+  body: json
+  auth: none
+}
+
+params:query {
+  password: 82c8aa52b6c46c80fe85bc20047d7b5131f62423
+  name: test
+  desc: Hello!!
+  idx: 1
+}
+
+body:json {
+  {
+    "comments": [
+      {
+        "author": "Person",
+        "date": "2024-10-30",
+        "text": "Lots of fancy text!\nNew line? Hopefully?"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+meta {
+  name: Put Picture
+  type: http
+  seq: 6
+}
+
+put {
+  url: https://obra-allgaeu.de/gallery-api-v2/admin-picture.php?password=82c8aa52b6c46c80fe85bc20047d7b5131f62423&idx=3&copyright=Janorico (Edited)&picture-idx=1
+  body: none
+  auth: none
+}
+
+params:query {
+  password: 82c8aa52b6c46c80fe85bc20047d7b5131f62423
+  idx: 3
+  copyright: Janorico (Edited)
+  picture-idx: 1
+}
+
+headers {
+  Content-Type: image/jpeg
+}
+
+body:multipart-form {
+  : @file()
+}
+
+script:pre-request {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const attachmentFilename = "sample2.jpg";
+  const attachmentPath = path.join(bru.cwd(), attachmentFilename);
+  const attachment = fs.readFileSync(attachmentPath);
+  const attachmentLength = attachment.length;
+  
+  req.setHeader("Content-Length", attachmentLength);
+  
+  req.setBody(attachment);
+}

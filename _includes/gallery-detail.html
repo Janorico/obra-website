@@ -1,0 +1,62 @@
+<div id="gallery-detail" class="gallery-detail-container">
+    <div id="gallery" class="gallery-detail-gallery">
+        <div id="gallery-bottom"></div>
+    </div>
+    <div style="display: flex; flex-flow: column">
+        <div id="entry-title" style="font-size: x-large;"></div>
+        <div id="entry-desc" class="gallery-detail-desc"></div>
+    </div>
+    <div style="grid-column: 1 / span 2"></div>
+</div>
+<script>
+    const detailPictures = [];
+    let detailSelection = 0;
+
+    function initializeDetail(idx) {
+        detailPictures.length = 0;
+        detailSelection = 0;
+        document.getElementById(`gallery`).removeAttribute("style");
+        let bottom = document.getElementById(`gallery-bottom`);
+        bottom.innerHTML = "";
+        apiRequest({
+            method: 'DATA',
+            index: idx
+        }, (json) => {
+            document.getElementById("entry-title").innerHTML = json["title"];
+            document.getElementById("entry-desc").innerHTML = json["description"];
+            apiRequest({
+                method: 'PICTURES',
+                index: idx
+            }, (json) => {
+                let pictureIndicators = ``;
+                json.forEach(i => {
+                    detailPictures.push(i);
+                    let pictureIdx = detailPictures.length - 1;
+                    pictureIndicators += `<span class="picture-indicator" id="picture-indicator-${pictureIdx}" onclick="setDetailPicture(${pictureIdx})">&bull;</span>`;
+                });
+                bottom.innerHTML = pictureIndicators;
+                if (detailPictures.length > 0) {
+                    setDetailPicture(0);
+                }
+            })
+        });
+    }
+
+    function setDetailPicture(pictureIdx) {
+        document.getElementById(`gallery`).setAttribute("style", `background-image: url(data:image/jpeg;base64,${detailPictures[pictureIdx]});`);
+        document.getElementById(`picture-indicator-${detailSelection}`).innerHTML = "&bull;";
+        document.getElementById(`picture-indicator-${pictureIdx}`).innerHTML = "&#9679;";
+        detailSelection = pictureIdx;
+    }
+
+    function apiRequest(content, successful) {
+        fetch("https://obra-allgaeu.de/gallery-api/fetch.php", {
+            method: 'POST',
+            body: JSON.stringify(content),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => response.json())
+            .then((json) => successful(json));
+    }
+</script>

@@ -1,0 +1,21 @@
+meta {
+  name: Delete Picture
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://obra-allgaeu.de/gallery-api-v2/admin-picture.php?password=82c8aa52b6c46c80fe85bc20047d7b5131f62423&idx=3&picture-idx=1
+  body: none
+  auth: none
+}
+
+params:query {
+  password: 82c8aa52b6c46c80fe85bc20047d7b5131f62423
+  idx: 3
+  picture-idx: 1
+}
+
+body:multipart-form {
+  : @file()
+}

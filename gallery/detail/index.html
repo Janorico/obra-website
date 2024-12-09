@@ -1,0 +1,43 @@
+---
+title: Detail
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    {% include meta.html %}
+    <title id="site-title">{{site.title}}</title>
+    <link rel="stylesheet" href="{% if site.baseurl %}{{site.baseurl}}{% else %}{% endif %}/assets/css/style.css">
+    <script src="https://kit.fontawesome.com/6a97161b76.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png">
+    <link rel="stylesheet" href="{% if site.baseurl %}{{site.baseurl}}{% else %}{% endif %}/assets/css/gallery.css">
+</head>
+
+<body>
+    {% include navbar.html %}
+    <section class="hero is-fullheight has-text-centered has-background-grain">
+        <div style="min-height: 3.25rem;"></div>
+        <div class="hero-body" style="align-items: normal;">
+            {% include gallery-detail.html %}
+            <div id="no-index" class="gallery-detail-overlay" style="visibility: hidden;">Kein Eintrag angegeben!</div>
+            <script defer>
+                const params = new URLSearchParams(window.location.search);
+                if (params.has("idx")) {
+                    initializeDetail(params.get("idx"));
+                } else {
+                    document.getElementById("gallery-detail").setAttribute("style", "visibility: hidden");
+                    let noIndex = document.getElementById("no-index");
+                    noIndex.removeAttribute("style");
+                    noIndex.parentElement.setAttribute("style", "position: relative;" + noIndex.parentElement.getAttribute("style"));
+                }
+            </script>
+        </div>
+    </section>
+    {% include footer.html %}
+</body>
+
+</html>
