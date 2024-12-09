@@ -1,0 +1,84 @@
+<div id="gallery-entries" class="gallery-container"></div>
+<dialog id="gallery-detail" class="gallery-detail-dialog">
+    <div class="gallery-detail-dialog-bg has-background-grain">
+        <div class="gallery-detail-dialog-close" onclick="document.getElementById('gallery-detail').close();">
+            <svg width="16" height="16" stroke="black" stroke-width="2" viewBox="0 0 16 16">
+                <line x1="0" y1="0" x2="16" y2="16"/>
+                <line x1="0" y1="16" x2="16" y2="0"/>
+            </svg>
+        </div>
+    </div>
+    {% include gallery-detail.html %}
+</dialog>
+<script defer>
+    let container = document.getElementById("gallery-entries");
+    let galleryDetail = document.getElementById("gallery-detail");
+    const pictures = [];
+    const selection = [];
+    let entryIndexMapping = [];
+    apiRequest({
+        method: 'DATA'
+    }, (json) => {
+        const indieces = [];
+        json.forEach(element => {
+            indieces.push(element.idx);
+            container.innerHTML += `<div id="gallery-entry-${element.idx}" class="gallery-entry" onclick="viewDetail(${element.idx});"><div id="gallery-entry-${element.idx}-bottom" onclick="preventParentClick(event);"><div class="gallery-entry-title" onclick="viewDetail(${element.idx});">${element.title}</div></div></div>`;
+        });
+        indieces.forEach(idx => {
+            apiRequest({
+                method: 'PICTURES',
+                index: idx
+            }, (json) => {
+                let pictureIndicators = ``;
+                const entryPictures = [];
+                json.forEach(i => {
+                    entryPictures.push(i);
+                    let pictureIdx = entryPictures.length - 1;
+                    pictureIndicators += `<span class="picture-indicator" id="picture-indicator-${idx}-${pictureIdx}" onclick="setPicture(${idx}, ${pictureIdx})">&bull;</span>`;
+                });
+                entryIndexMapping[idx] = pictures.length;
+                pictures.push(entryPictures);
+                let bottom = document.getElementById(`gallery-entry-${idx}-bottom`);
+                bottom.innerHTML = pictureIndicators + bottom.innerHTML;
+                if (json.length > 0) {
+                    selection[idx] = 0;
+                    setPicture(idx, 0);
+                } else {
+                    selection[idx] = -1;
+                }
+            })
+        })
+    });
+
+    function preventParentClick(e) {
+        e.stopPropagation();
+    }
+
+    function setPicture(entryIdx, pictureIdx) {
+        let imageBase64 = `data:image/jpeg;base64,${pictures[entryIndexMapping[entryIdx]][pictureIdx]}`;
+        let image = new Image();
+        image.src = imageBase64;
+        image.decode().then(() => {
+            document.getElementById(`gallery-entry-${entryIdx}`).setAttribute("style", `background-image: url(${imageBase64}); background-size: ${image.naturalWidth > image.naturalHeight ? "cover" : "contain"};`);
+            document.getElementById(`picture-indicator-${entryIdx}-${selection[entryIdx]}`).innerHTML = "&bull;";
+            document.getElementById(`picture-indicator-${entryIdx}-${pictureIdx}`).innerHTML = "&#9679;";
+            selection[entryIdx] = pictureIdx;
+        });
+    }
+
+    function viewDetail(entryIdx) {
+        initializeDetail(entryIdx);
+        galleryDetail.showModal();
+    }
+
+    /*function apiRequest(content, successful) {
+        fetch("https://obra-allgaeu.de/gallery-api/fetch.php", {
+            method: 'POST',
+            body: JSON.stringify(content),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => response.json())
+            .then((json) => successful(json));
+    }*/
+</script>
