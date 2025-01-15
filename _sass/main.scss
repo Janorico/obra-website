@@ -10,7 +10,12 @@ body {
     transition: all 0.25s ease;
 }
 
-
+@-moz-document url-prefix() {
+    html, body {
+        scrollbar-color: maroon chocolate;
+        scrollbar-width: thin;
+    }
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -19,17 +24,17 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: white !important;
+    background: chocolate !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #363636 !important;
+    background: maroon !important;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: black !important;
+    background: brown !important;
 }
 
 ::placeholder {

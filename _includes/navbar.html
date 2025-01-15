@@ -1,11 +1,11 @@
 <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
-    <div class="container">
+    <div class="navbar container">
 
         <!-- logo or branding image on left side -->
         <div class="navbar-brand">
-            <a class="navbar-item"
+            <a class="navbar-item logo"
                 href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                <strong>{{site.title}}</strong>
+                <img src="/assets/images/logo_no_bg.svg" alt="Obra Logo">
             </a>
             <div class="navbar-burger" data-target="navbar-menu">
                 <span></span>
@@ -15,7 +15,7 @@
         </div>
 
         <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
-        <div class="navbar-menu has-background-black" id="navbar-menu">
+        <div class="navbar-menu has-background-chocolate" id="navbar-menu">
             <!-- navbar items | left side -->
             <!-- <div class="navbar-start">
             </div> -->
@@ -23,13 +23,25 @@
             <div class="navbar-end">
                 <a class="navbar-item {% if page.layout == 'default' %}is-active{% endif %}"
                     href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">HOME</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#about">ABOUT</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#contact">CONTACT</a>
-                <a class="navbar-item {% if page.layout == 'blog' %}is-active{% endif %}"
-                    href="{{site.url}}{{site.baseurl}}/blog">BLOG</a>
-                {% include dropdown.html %}
+                {% for sitepage in site.navbar-pages %}
+                <a class="navbar-item" href="{{sitepage.url}}">{{sitepage.name}}</a>
+                {% endfor %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="{{site.url}}{{site.baseurl}}/services">
+                        Leistungen
+                    </a>
+                    <div class="navbar-dropdown has-background-chocolate is-left">
+                        <a href="{{site.url}}{{site.baseurl}}/services#wood"
+                           class="navbar-item has-text-white {% if page.url == sitepage.url | absolute_url  %}is-active{% endif %}">
+                            Holz&bull;Arbeiten
+                        </a>
+                        <a href="{{site.url}}{{site.baseurl}}/services#tree"
+                           class="navbar-item has-text-white {% if page.url == sitepage.url | absolute_url  %}is-active{% endif %}">
+                            Baum&bull;Kontrolle
+                        </a>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 </nav>

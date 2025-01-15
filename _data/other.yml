@@ -1,0 +1,8 @@
+- name: Recyclingholz
+  description: B&auml;umen ein zweites Leben geben
+  image:
+  image-position: center
+- name: Projektbegleitung
+  description: Sie haben die Idee, ich begleite Sie bei der Umsetzung.
+  image:
+  image-position: center

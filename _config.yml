@@ -4,50 +4,68 @@ markdown: kramdown
 # URL of the Site
 url: ''
 # Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
-baseurl: 
+baseurl:
 
 # Title of the Site
-title: What A Theme
+title: Obra
 # Description of the Site
-description: A customizable Jekyll portfolio theme
+# TODO Add description
+description: Ganzheitliches Holz&bull;Hand&bull;Werk
 # URL of Image of the Site
 site-image: /WhatATheme/assets/images/meta.jpg
 # Keywords of the Site
-site-keywords: Site, Template, Theme
-# URL for the Image of custom Favicon
-favicon-url: 
+site-keywords: Holz, Handwerk, Baum, Bäume, Forst, Mondholz, Nachhaltig, Naturholz, Vollholz, Regional, Kunst, Baumkontrolle, FLL, Schreiner, Bauschreiner, Förster, Möbel, Tisch
 
 # URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
-heroimage: https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+heroimage: /assets/images/hero.jpg
+wooddescription: Holz\002022Arbeiten
+# Photo by Pixabay: https://www.pexels.com/photo/brown-tree-and-green-leaf-51329/
+heroimage2: /assets/images/pexels-pixabay-51329.jpg
+treedescription: Baum\002022Kontrolle
+# Photo by mali maeder: https://www.pexels.com/photo/green-tree-near-green-plants-142497/
+heroimage3: /assets/images/pexels-mali-maeder-142497.jpg
+forestdescription: Wald\002022Dienste
 
 # Social Media and Contact
 # If you don't want to use any icon, you can leave them blank.
-email: thedevslot@gmail.com
-facebook_username: thedevslot
-twitter_username: thedevslot
-instagram_username: thedevslot
-linkedin_username: thedevslot
-github_username:  thedevslot
-youtube_channel_id: UCk_93NXYP-U_AOB5GfWlOow
-reddit_username: /
-behance_username: /
-dribbble_username: /
-spotify_username: /
+email: mail@obra-allgaeu.de
+facebook_username:
+twitter_username:
+instagram_username:
+linkedin_username:
+github_username:
+youtube_channel_id:
+reddit_username:
+behance_username:
+dribbble_username:
+spotify_username:
 
 # Google Analytics
-google-analytics: UA-163806439-1
+google-analytics:
 
 # Disqus
-disqus-shortname: thedevslot
+disqus-shortname:
 
 # Name of the Author
-author-name: TheDevsLot
+author-name: Pablo Jägemann-Lion
 # URL for the Image of the Author
-author-image: https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png
+author-image: /assets/images/portrait.jpg
 # 60 Words About the Author
-author-about: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pharetra velit, dapibus bibendum ex. Maecenas vitae laoreet mauris, ac luctus metus. Aliquam luctus velit vel ipsum feugiat, vel venenatis mauris hendrerit. Sed at vulputate sapien, eget vehicula dolor. Aliquam volutpat pulvinar neque sit amet sodales.
+author-about: Meine Liebe zur Seele des Holzes und meine Passion für altbewährte Handwerkstechniken fließen in jedes Werkstück mit ein. Ich bin Holzhandwerker aus Überzeugung.
+  <br>
+  <br>
+  Die Holzverarbeitung begleitet mich schon mein Leben lang. Als Kind verbrachte ich viel Zeit in der Geigenbauwerkstatt meines Vaters. Dort tauchte ich ein in die Sinneswelt dieses Feinhandwerkes. Nach der Waldorfschule entschloss ich mich für eine Zimmermannslehre bei einer auf ökologischen Holzhausbau spezialisierten Firma. Ein traditionsreiches Handwerk, das ich ein paar Jahre auch selbständig ausführte. Dann zog es mich weiter an die Fachhochschule, wo mir ein Studium der Forstwirtschaft den Baum, sein Lebensumfeld und den Prozess der Holzgewinnung nahebrachte. Tief tauchte ich ein in das Zusammenspiel zwischen dem einzelnen Baum und seiner Lebensumgebung, als ich mich begleitend zum Studium als Baumpfleger weiterbildete und einige Jahre in diesem Bereich arbeitete. Durch meinen/diesen Ausbildungsweg habe ich heute einen Überblick über den Gesamtprozess vom Wald bis in die Werkstatt. Das ist die Basis für meine Handwerkskunst.
 # URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
-author-url: https://github.com/thedevslot
+author-url:
+
+# Navbar
+navbar-pages:
+  - name: Über Mich
+    url: /#about
+  - name: Kontakt
+    url: /#contact
+  - name: Galerie
+    url: /gallery
 
 # SASS
 sass:
@@ -57,7 +75,6 @@ sass:
 # Build settings
 plugins:
   - jekyll-admin
-  - jekyll-feed
 
 # Permalink
 permalink: "blog/:title"
@@ -95,3 +112,4 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md

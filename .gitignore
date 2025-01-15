@@ -4,6 +4,7 @@
 
 ### Jekyll ###
 _site/
+_build/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
@@ -70,3 +71,18 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 # End of https://www.toptal.com/developers/gitignore/api/jekyll,ruby
+
+## IntelliJ IDEA
+.idea/
+
+## Testing
+.dev/test/
+
+## VScode
+.vscode/**
+!.vscode/tasks.json
+*.code-workspace
+
+## PHP
+# This is ignored for security reasons
+*.php

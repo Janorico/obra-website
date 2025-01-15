@@ -3,18 +3,139 @@
 
 @import "main.scss";
 
+input[type=text], input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: none;
+}
+
+input[type=submit] {
+    background-color: maroon;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: chocolate;
+    }
+}
+
+.badge {
+    background-color: maroon;
+    opacity: 0.8;
+    border-radius: 4px;
+    padding: 0rem 0.2rem;
+    margin-right: 0.25rem;
+    font-size: x-small;
+    align-self: end;
+    position: absolute;
+    right: 0;
+}
+
+button {
+    background-color: maroon;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: chocolate;
+    }
+}
+
 #navbar {
     opacity: 0.95;
+    background: chocolate
+}
+
+
+.obra-service {
+    aspect-ratio: 1 / 1;
+}
+
+.obra-card {
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    margin: 12px;
+}
+
+.obra-card-text {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #D2691E80;
 }
 
 .is-active {
     font-weight: 600;
 }
 
+.has-text-maroon {
+    color: maroon !important;
+}
+
+.has-background-chocolate {
+    background: chocolate !important;
+}
+
+.has-background-grain {
+    background-image: url("/assets/images/grain.svg") !important;
+    background-size: cover;
+    background-position: left;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+}
+
+.navbar.container {
+    margin: 0 0 0 0;
+    max-width: none;
+}
+
 .navbar-dropdown {
     border: none;
     right: 0;
     left: auto;
+}
+
+.navbar-item {
+    background: chocolate;
+    &:hover {
+        background-color: rgba($color: #fff, $alpha: 0.25) !important;
+        color: grey;
+    }
+}
+
+.logo {
+    padding: 0 0 0 0;
+}
+
+.section-header {
+    background: chocolate;
+    color: white;
+    height: 104px;
+    vertical-align: bottom;
+}
+
+.services-section-header {
+    background: chocolate;
+    color: white;
+}
+
+.section-header-text {
+    position: relative;
+    top: 50%;
+    height: 50%;
 }
 
 a.navbar-item:hover,
@@ -37,6 +158,36 @@ a.navbar-item.is-active {
     border-color: grey;
 }
 
+@keyframes showcase-description-anim {
+  3%, 30% {
+    content: "{{site.wooddescription}}";
+  }
+  36%, 63% {
+    content: "{{site.treedescription}}";
+  }
+  69%, 97% {
+    content: "{{site.forestdescription}}";
+  }
+}
+
+.showcase-description::after {
+  content: "";
+  animation-name: showcase-description-anim;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hero-image-anim {
+    3%, 30% {
+      background-image: url({{site.heroimage}});
+    }
+    36%, 63% {
+      background-image: url({{site.heroimage2}});
+    }
+    69%, 97% {
+      background-image: url({{site.heroimage3}});
+    }
+}
 
 #hero {
     background: rgb(0, 0, 0);
@@ -46,7 +197,9 @@ a.navbar-item.is-active {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
 
     &::before {
-        filter: blur(0.15rem);
+        animation-name: hero-image-anim;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
         background-image: url({{site.heroimage}});
         background-position: center;
         background-repeat: no-repeat;
@@ -57,10 +210,11 @@ a.navbar-item.is-active {
         bottom: 0px;
         left: 0px;
         position: absolute;
-        opacity: 0.25;
+        opacity: 0.75;
         content: "";
     }
 }
+
 .title {
     margin: auto 0.75rem!important;
 }
@@ -70,8 +224,7 @@ a.navbar-item.is-active {
 
 #about {
     .image {
-        max-width: 20vmax;
-        margin: auto;
+        max-width: 50vmax;
 
         img {
             border: 0.25rem dotted black;
@@ -79,7 +232,7 @@ a.navbar-item.is-active {
     }
 
     a {
-        min-width: 25vmax;
+        min-width: 30rem;
         margin: 0.5rem;
     }
 }
@@ -257,11 +410,12 @@ a.navbar-item.is-active {
     }
 }
 
-#project {
+.cards {
     .columns {
         .column {
             border-radius: 0.5rem;
             .image {
+                padding-top: 50%;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -269,7 +423,7 @@ a.navbar-item.is-active {
         }
     }
 
-    #project-card {
+    .cards-card {
         -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);

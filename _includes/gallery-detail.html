@@ -1,0 +1,77 @@
+<div id="gallery-detail" class="gallery-detail-container">
+    <div id="gallery" class="gallery-detail-gallery">
+        <div id="gallery-detail-bottom"></div>
+    </div>
+    <div style="display: flex; flex-flow: column">
+        <div id="entry-name" style="font-size: x-large;"></div>
+        <div id="entry-desc" class="gallery-detail-desc"></div>
+    </div>
+    <div style="grid-column: 1 / span 2"></div>
+</div>
+<script>
+    let detailEntry = null;
+    let detailPictureSelection = 0;
+
+    function initDetail(e) {
+        detailEntry = e;
+        document.getElementById("entry-name").innerHTML = e.name;
+        document.getElementById("entry-desc").innerHTML = e.desc;
+        let pictureIndicators = "";
+        for (let j = 0; j < e.pictures.length; j++) {
+            pictureIndicators += `<span class="picture-indicator" id="detail-picture-indicator-${j}" onclick="setDetailPicture(${j})">&bull;</span>`;
+        }
+        let bottom = document.getElementById(`gallery-detail-bottom`);
+        bottom.innerHTML = pictureIndicators;
+        detailPictureSelection = 0;
+        if (e.pictures.length > 0) {
+            setDetailPicture(0);
+        }
+    }
+
+    function setDetailPicture(pi) {
+        let imageSrc = `https://obra-allgaeu.de/gallery-images/${detailEntry.pictures[pi].file_name}`;
+        let image = new Image();
+        image.src = imageSrc;
+        document.getElementById(`detail-picture-indicator-${detailPictureSelection}`).innerHTML = "&bull;";
+        document.getElementById(`detail-picture-indicator-${pi}`).innerHTML = "&#9679;";
+        document.getElementById(`gallery`).setAttribute("style", `background-image: url(${imageSrc});`);
+        detailPictureSelection = pi;
+    }
+</script>
+<script>
+    let gallery = document.getElementById("gallery");
+    gallery.addEventListener("touchstart", handleTouchStart);
+    gallery.addEventListener("touchend", handleTouchEnd);
+    let startX = null;
+
+    function handleTouchStart(e) {
+        let x = e.changedTouches[0].pageX;
+        let y = e.changedTouches[0].pageY;
+        if (e.target == gallery) {
+            startX = x;
+            e.stopPropagation();
+        }
+    }
+
+    function handleTouchEnd(e) {
+        if (startX === null) {
+            return;
+        }
+        let endX = e.changedTouches[0].pageX;
+        let xDiff = endX - startX;
+        if (xDiff > 50) {
+            if (detailPictureSelection > 0) {
+                setDetailPicture(detailPictureSelection - 1);
+            } else {
+                setDetailPicture(detailEntry.pictures.length - 1);
+            }
+        } else if (xDiff < -50) {
+            if (detailPictureSelection < detailEntry.pictures.length - 1) {
+                setDetailPicture(detailPictureSelection + 1);
+            } else {
+                setDetailPicture(0);
+            }
+        }
+        e.stopPropagation();
+    }
+</script>

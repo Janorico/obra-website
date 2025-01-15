@@ -1,0 +1,64 @@
+<div id="gallery-entries" class="gallery-container"></div>
+<dialog id="gallery-detail" class="gallery-detail-dialog">
+    <div class="gallery-detail-dialog-bg has-background-grain">
+        <div class="gallery-detail-dialog-close" onclick="document.getElementById('gallery-detail').close();">
+            <svg width="16" height="16" stroke="black" stroke-width="2" viewBox="0 0 16 16">
+                <line x1="0" y1="0" x2="16" y2="16" />
+                <line x1="0" y1="16" x2="16" y2="0" />
+            </svg>
+        </div>
+    </div>
+    {% include gallery-detail.html %}
+</dialog>
+<script defer>
+    let entries = [];
+    const pictureSelection = [];
+    let container = document.getElementById("gallery-entries");
+    let galleryDetail = document.getElementById("gallery-detail");
+
+    fetch("https://obra-allgaeu.de/gallery-api-v2/fetch.php").then((response) => response.json()).then((json) => {
+        entries = json;
+        pictureSelection.length = entries.length;
+        for (let i = 0; i < entries.length; i++) {
+            const e = entries[i];
+            container.innerHTML += `<div id="gallery-entry-${i}" class="gallery-entry" onclick="viewDetail(${i});"><div id="gallery-entry-${i}-bottom" onclick="preventParentClick(event);"><div class="gallery-entry-title" onclick="viewDetail(${i});">${e.name}</div></div></div>`;
+            let pictureIndicators = "";
+            for (let j = 0; j < e.pictures.length; j++) {
+                pictureIndicators += `<span class="picture-indicator" id="picture-indicator-${i}-${j}" onclick="setPicture(${i}, ${j})">&bull;</span>`;
+            }
+            let bottom = document.getElementById(`gallery-entry-${i}-bottom`);
+            bottom.innerHTML = pictureIndicators + bottom.innerHTML;
+            pictureSelection[i] = 0;
+            if (e.pictures.length > 0) {
+                setPicture(i, 0);
+            }
+        }
+    });
+
+    function setPicture(ei, pi) {
+        let imageSrc = `https://obra-allgaeu.de/gallery-images/${entries[ei].pictures[pi].file_name}`;
+        let image = new Image();
+        image.src = imageSrc;
+        try {
+            image.decode().then(() => {
+                document.getElementById(`picture-indicator-${ei}-${pictureSelection[ei]}`).innerHTML = "&bull;";
+                document.getElementById(`picture-indicator-${ei}-${pi}`).innerHTML = "&#9679;";
+                document.getElementById(`gallery-entry-${ei}`).setAttribute("style", `background-image: url(${imageSrc}); background-size: ${image.naturalWidth > image.naturalHeight ? "cover" : "contain"};`);
+                pictureSelection[ei] = pi;
+            });
+        } catch (error) {
+            console.error(error);
+            document.getElementById(`gallery-entry-${ei}`).setAttribute("style", `background-image: url(${imageSrc});`);
+        }
+    }
+
+    function viewDetail(ei) {
+        let detail = document.getElementById("gallery-detail");
+        initDetail(entries[ei]);
+        detail.showModal();
+    }
+
+    function preventParentClick(e) {
+        e.stopPropagation();
+    }
+</script>
