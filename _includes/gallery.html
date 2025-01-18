@@ -14,7 +14,6 @@
     let entries = [];
     const pictureSelection = [];
     let container = document.getElementById("gallery-entries");
-    let galleryDetail = document.getElementById("gallery-detail");
 
     fetch("https://obra-allgaeu.de/gallery-api-v2/fetch.php").then((response) => response.json()).then((json) => {
         entries = json;
