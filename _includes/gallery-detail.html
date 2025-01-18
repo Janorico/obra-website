@@ -29,7 +29,7 @@
     }
 
     function setDetailPicture(pi) {
-        let imageSrc = `https://obra-allgaeu.de/gallery-images/${detailEntry.pictures[pi].file_name}`;
+        let imageSrc = `{{ site.baseurl }}/gallery-images/${detailEntry.pictures[pi].file_name}`;
         let image = new Image();
         image.src = imageSrc;
         document.getElementById(`detail-picture-indicator-${detailPictureSelection}`).innerHTML = "&bull;";

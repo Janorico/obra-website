@@ -12,18 +12,18 @@ title: Obra
 # TODO Add description
 description: Ganzheitliches Holz&bull;Hand&bull;Werk
 # URL of Image of the Site
-site-image: /WhatATheme/assets/images/meta.jpg
+site-image: assets/images/meta.jpg
 # Keywords of the Site
 site-keywords: Holz, Handwerk, Baum, Bäume, Forst, Mondholz, Nachhaltig, Naturholz, Vollholz, Regional, Kunst, Baumkontrolle, FLL, Schreiner, Bauschreiner, Förster, Möbel, Tisch
 
 # URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
-heroimage: /assets/images/hero.jpg
+heroimage: assets/images/hero.jpg
 wooddescription: Holz\002022Arbeiten
 # Photo by Pixabay: https://www.pexels.com/photo/brown-tree-and-green-leaf-51329/
-heroimage2: /assets/images/pexels-pixabay-51329.jpg
+heroimage2: assets/images/pexels-pixabay-51329.jpg
 treedescription: Baum\002022Kontrolle
 # Photo by mali maeder: https://www.pexels.com/photo/green-tree-near-green-plants-142497/
-heroimage3: /assets/images/pexels-mali-maeder-142497.jpg
+heroimage3: assets/images/pexels-mali-maeder-142497.jpg
 forestdescription: Wald\002022Dienste
 
 # Social Media and Contact
@@ -49,7 +49,7 @@ disqus-shortname:
 # Name of the Author
 author-name: Pablo Jägemann-Lion
 # URL for the Image of the Author
-author-image: /assets/images/portrait.jpg
+author-image: assets/images/portrait.jpg
 # 60 Words About the Author
 author-about: Meine Liebe zur Seele des Holzes und meine Passion für altbewährte Handwerkstechniken fließen in jedes Werkstück mit ein. Ich bin Holzhandwerker aus Überzeugung.
   <br>
@@ -61,11 +61,11 @@ author-url:
 # Navbar
 navbar-pages:
   - name: Über Mich
-    url: /#about
+    url: '#about'
   - name: Kontakt
-    url: /#contact
+    url: '#contact'
   - name: Galerie
-    url: /gallery
+    url: gallery
 
 # SASS
 sass:
