@@ -15,6 +15,8 @@ description: Ganzheitliches Holz&bull;Hand&bull;Werk
 site-image: assets/images/meta.jpg
 # Keywords of the Site
 site-keywords: Holz, Handwerk, Baum, Bäume, Forst, Mondholz, Nachhaltig, Naturholz, Vollholz, Regional, Kunst, Baumkontrolle, FLL, Schreiner, Bauschreiner, Förster, Möbel, Tisch
+# Gallery API to use
+gallery-api-url: https://obra-allgaeu.de/gallery-api-v2/fetch.php
 
 # URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
 heroimage: assets/images/hero.jpg
