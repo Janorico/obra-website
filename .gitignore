@@ -77,6 +77,7 @@ build-iPhoneSimulator/
 
 ## Testing
 .dev/test/
+_config.dev.yml
 
 ## VScode
 .vscode/**
