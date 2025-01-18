@@ -90,7 +90,7 @@ button {
 }
 
 .has-background-grain {
-    background-image: url("/assets/images/grain.svg") !important;
+    background-image: url("{{ site.baseurl }}/assets/images/grain.svg") !important;
     background-size: cover;
     background-position: left;
     background-color: rgba(255, 255, 255, 0.8);
@@ -179,13 +179,13 @@ a.navbar-item.is-active {
 
 @keyframes hero-image-anim {
     3%, 30% {
-      background-image: url({{site.heroimage}});
+      background-image: url({{ site.baseurl }}/{{site.heroimage}});
     }
     36%, 63% {
-      background-image: url({{site.heroimage2}});
+      background-image: url({{ site.baseurl }}/{{site.heroimage2}});
     }
     69%, 97% {
-      background-image: url({{site.heroimage3}});
+      background-image: url({{ site.baseurl }}/{{site.heroimage3}});
     }
 }
 
@@ -200,7 +200,7 @@ a.navbar-item.is-active {
         animation-name: hero-image-anim;
         animation-duration: 20s;
         animation-iteration-count: infinite;
-        background-image: url({{site.heroimage}});
+        background-image: url({{ site.baseurl }}/{{site.heroimage}});
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

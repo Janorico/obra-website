@@ -8,7 +8,7 @@
                 </div>
                 <div class="columns is-centered is-multiline is-mobile">
                     {% for service in site.data.services %}
-                    <a class="column image is-3by1 obra-card" href="{{site.url}}{{site.baseurl}}/services#{{ service.link }}" style="background-image: url({{service.image}});">
+                    <a class="column image is-3by1 obra-card" href="{{site.url}}{{site.baseurl}}/services#{{ service.link }}" style="background-image: url({{ site.baseurl }}/{{service.image}});">
                         <div class="obra-card-text">
                             <h1 class="title has-text-white is-size-4">{{ service.name }}</h1>
                             <p class="has-text-white has-text-weight-light content">{{ service.description | truncate: 80}}</p>
@@ -40,7 +40,7 @@
             <div class="columns">
                 <div class="column is-one-third-desktop is-one-third-tablet is-one-third-fullhd">
                     <figure>
-                        <img alt="{{site.author-name}}" src="{{site.author-image}}" style="border-radius: 4px">
+                        <img alt="{{site.author-name}}" src="{{ site.baseurl }}/{{site.author-image}}" style="border-radius: 4px">
                     </figure>
                 </div>
                 <div class="column has-text-left-desktop has-text-left-tablet has-text-left-fullhd has-text-left-widescreen">

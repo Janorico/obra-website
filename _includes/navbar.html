@@ -5,7 +5,7 @@
         <div class="navbar-brand">
             <a class="navbar-item logo"
                 href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                <img src="/assets/images/logo_no_bg.svg" alt="Obra Logo">
+                <img src="{{ site.baseurl }}/assets/images/logo_no_bg.svg" alt="Obra Logo">
             </a>
             <div class="navbar-burger" data-target="navbar-menu">
                 <span></span>
@@ -24,7 +24,7 @@
                 <a class="navbar-item {% if page.layout == 'default' %}is-active{% endif %}"
                     href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">HOME</a>
                 {% for sitepage in site.navbar-pages %}
-                <a class="navbar-item" href="{{sitepage.url}}">{{sitepage.name}}</a>
+                <a class="navbar-item" href="{{ site.baseurl }}/{{sitepage.url}}">{{sitepage.name}}</a>
                 {% endfor %}
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link" href="{{site.url}}{{site.baseurl}}/services">
