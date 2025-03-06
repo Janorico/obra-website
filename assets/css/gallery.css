@@ -88,7 +88,18 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    align-content: end;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr auto;
+}
+
+.gallery-arrow {
+    pointer-events: all;
+    fill: none;
+    stroke: #000;
+    stroke-width: 4px;
+    align-self: center;
+    margin: 1rem;
 }
 
 .gallery-detail-overlay {

@@ -1,6 +1,12 @@
 <div id="gallery-detail" class="gallery-detail-container">
     <div id="gallery" class="gallery-detail-gallery">
-        <div id="gallery-detail-bottom"></div>
+        <svg onclick="prevPicture()" width="20" height="32" viewBox="0 0 20 32" class="gallery-arrow" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 18,2 L 2,16 18,30"></path>
+        </svg>
+        <svg onclick="nextPicture()" width="20" height="32" viewBox="0 0 20 32" style="grid-column-start: 3;" class="gallery-arrow" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 2,2 L 18,16 2,30"></path>
+        </svg>
+        <div id="gallery-detail-bottom" style="width: 100%; grid-column-end: 3;"></div>
     </div>
     <div style="display: flex; flex-flow: column">
         <div id="entry-name" style="font-size: x-large;"></div>
@@ -28,6 +34,22 @@
         }
     }
 
+    function prevPicture() {
+        if (detailPictureSelection > 0) {
+            setDetailPicture(detailPictureSelection - 1);
+        } else {
+            setDetailPicture(detailEntry.pictures.length - 1);
+        }
+    }
+
+    function nextPicture() {
+        if (detailPictureSelection < detailEntry.pictures.length - 1) {
+            setDetailPicture(detailPictureSelection + 1);
+        } else {
+            setDetailPicture(0);
+        }
+    }
+
     function setDetailPicture(pi) {
         let imageSrc = `{{ site.baseurl }}/gallery-images/${detailEntry.pictures[pi].file_name}`;
         let image = new Image();
@@ -37,8 +59,7 @@
         document.getElementById(`gallery`).setAttribute("style", `background-image: url(${imageSrc});`);
         detailPictureSelection = pi;
     }
-</script>
-<script>
+
     let gallery = document.getElementById("gallery");
     gallery.addEventListener("touchstart", handleTouchStart);
     gallery.addEventListener("touchend", handleTouchEnd);
@@ -60,17 +81,9 @@
         let endX = e.changedTouches[0].pageX;
         let xDiff = endX - startX;
         if (xDiff > 50) {
-            if (detailPictureSelection > 0) {
-                setDetailPicture(detailPictureSelection - 1);
-            } else {
-                setDetailPicture(detailEntry.pictures.length - 1);
-            }
+            prevPicture();
         } else if (xDiff < -50) {
-            if (detailPictureSelection < detailEntry.pictures.length - 1) {
-                setDetailPicture(detailPictureSelection + 1);
-            } else {
-                setDetailPicture(0);
-            }
+            nextPicture();
         }
         e.stopPropagation();
     }
