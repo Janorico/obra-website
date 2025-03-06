@@ -1,5 +1,8 @@
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <section class="hero is-fullheight has-text-centered has-background-grain" id="contact">
-    <div class="section-header"><h2 class="section-header-text subtitle has-text-white is-size-2 is-uppercase has-text-weight-bold">Kontakt</h2></div>
+    <div class="section-header">
+        <h2 class="section-header-text subtitle has-text-white is-size-2 is-uppercase has-text-weight-bold">Kontakt</h2>
+    </div>
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
@@ -57,8 +60,10 @@
                         <textarea id="message" name="message" placeholder="Ihre Nachricht" required style="height:200px"></textarea>
 
                         <input id="agree_terms" required type="checkbox">
-                        <label for="agree_terms">Ich habe die Datenschutzerklärung zur Kenntniss genommen und bin damit einverstanden dass meine Daten elektronisch verarbeitet und
+                        <label for="agree_terms">Ich habe die Datenschutzerklärung zur Kenntnis genommen und bin damit
+                            einverstanden dass meine Daten elektronisch verarbeitet und
                             gespeichert werden.*</label>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA_oZ5ho_NhGZW1g" data-language="de-de" data-size="flexible" data-theme="light"></div>
                         <div class="container has-text-centered">
                             <input type="submit" value="Senden">
                         </div>
