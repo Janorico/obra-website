@@ -1,20 +1,6 @@
-# - name: T&uuml;ren
-#   description: <b>Jedes Zimmer braucht eine T&uuml;r</b> - ich fertige Zimmert&uuml;ren auf Ma&szlig;.
-#   image: /assets/images/IMG_8047.jpg
-#   image-position: center
-# - name: Innenausbau
-#   description: <b>Individuell pers&ouml;nlich</b>
-#   image: /assets/images/IMG_1898.jpg
-#   image-position: center
-# - name: Restauration
-#   description: <b>Aus alt wird neu</b>
-#   image: /assets/images/1080816.JPG
-#   image-position: center
-# - name: Terassen
-#   description: <b>Terrassen aus heimischer L&aumlrche</b> - jede Form ist machbar!
-#   image: /assets/images/017.JPG
-#   image-position: center
-# - name: Fu&szlig;b&ouml;den
-#   description: <b>Fu&szlig;b&ouml;den aus Massivholz</b> - Echten Boden unter den F&uuml;&szlig;en f&uuml;r jeden Anspruch!
-#   image: /assets/images/IMG_0001_2_edited.JPG
-#   image-position: center
+- name: Holzarbeiten innen
+  desc: "Für ihre Inneneinrichtung gestalte ich individuelle Holzwerkstücke aus lebendigem Holz. Dabei geht mein Rahmen von der soliden Standardausführung aus günstiger regionaler Fichte bis zu außergewöhnlichen Wunschkreationen aus lebendigen (Edel)Hölzern mit raffinierten Techniken. <br>Ebenso verlege ich Massivholzböden von der einfachen Fichtendiele über traditionelle breite (bis 50 cm) Dielen bis zu Edelholz-Sonderanfertigungen."
+- name: Holzarbeiten außen
+  desc: "Als gelernter Zimmermann baue ich für sie im Außenbereich: Carports, Pergolen, Terrassen, Treppen, (wärmegedämmte) Holzfassaden und vieles mehr. Für größere Projekte hole ich meine Partnerfirmen mit ins Boot."
+- name: Montagearbeite
+  desc: "Sie haben sich eine neue Küche gekauft, wünschen einen neuen Fußboden, ziehen ihre Praxisräume um oder …? Ich übernehme für sie sämtliche Arbeiten von Abbau bis Aufbau zuverlässig mit Erfahrung und Geschick für individuelle Anpassungen."
