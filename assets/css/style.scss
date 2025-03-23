@@ -26,6 +26,20 @@ input[type=submit] {
     }
 }
 
+.link-dark {
+    &:link {
+        color: black;
+    }
+
+    &:visited {
+        color: #303030
+    }
+
+    &:hover {
+        color: #505050;
+    }
+}
+
 .service-image {
     position: sticky;
     top: 3.25rem;
