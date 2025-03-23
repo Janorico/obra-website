@@ -76,12 +76,14 @@ build-iPhoneSimulator/
 .idea/
 
 ## Testing
-.dev/test/
+.dev/
 _config.dev.yml
 
+## Gallery Build
+gallery-embed/
+
 ## VScode
-.vscode/**
-!.vscode/tasks.json
+.vscode/
 *.code-workspace
 
 ## PHP
